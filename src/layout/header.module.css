@@ -9,11 +9,16 @@
     width: 100%;
     background-color: transparent;
     font-family: 'Satisfy', cursive;
+    z-index: 1000;
 }
 
 .title{
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+.title a{
+    color: #ffff;
 }
 
 .menuList{
@@ -57,4 +62,8 @@
 
 .menuList li:hover:before{
     width: 100%;
+}
+
+.menuList li a{
+    color: #ffff;
 }
