@@ -1,10 +1,11 @@
 :root{
+    font-size: 15px;
     /* COLOR */
-    --border-color: #5e96ff;
-    --section-bg-color:#f0f0f0;
-    --card-bg-color:#232323;
-    --title-bg-color: #00155c;
-    --svg-color: rgb(49,66,124);
+    --primary: #5e96ff;
+    --secondary: #00155c;
+    --section-bg:#f0f0f0;
+    --skill-card:#232323;
+    --svg: rgb(49,66,124);
 }
 
 ::-webkit-scrollbar {
@@ -13,7 +14,7 @@
 
 ::-webkit-scrollbar-thumb {
     height: 30%; /* 스크롤바의 길이 */
-    background: var(--border-color); /* 스크롤바의 색상 */
+    background: var(--primary); /* 스크롤바의 색상 */
     border-radius: 10px;
 }
 
