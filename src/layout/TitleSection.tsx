@@ -15,7 +15,6 @@ const particleStyle: Record<string, any> = {
 
 const setParticle = (canvas:HTMLCanvasElement) => {
     // 캔버스 세팅
-    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight;
 
@@ -33,25 +32,39 @@ const setParticle = (canvas:HTMLCanvasElement) => {
         ctx.clearRect(0,0, canvas.width, canvas.height);
 
         if(frameId % (11-particleStyle.amount) == 0){
-                const x = canvas.width*Math.random()+canvas.width/2*Math.random();
+            const x = canvas.width*Math.random()+canvas.width/2*Math.random();
 
-                // 파티클 생성
-               const [setAParticle, setAId]  = new Particle(
+            // 파티클 생성
+           const particle = new Particle(
                     x,
                     -1 * getRandom(particleStyle.vx - 2, particleStyle.vx),
                     getRandom(particleStyle.vy - 2, particleStyle.vy),
                     particleStyle.size,
                     canvas,
-                    particles,
+               pIndex%2 === 0 ? '#5e96ff' : '#fff',
                     pIndex
                 );
-
-                particles = setAParticle
-                pIndex = setAId
+           particles.push(particle)
+           pIndex++
         }
 
         for(var i in particles){
-            particles[i].draw(ctx, particles);
+            const particle = particles[i]
+            particle.setDrawData();
+
+            // draw Particle
+            ctx.fillStyle = particle.color;
+            ctx.beginPath();
+            ctx.moveTo(particle.x+particle.x/2, particle.y+particle.y/2);
+            ctx.lineTo(particle.x+particle.x/2+particle.width/2, particle.y+particle.y/2+particle.height);
+            ctx.lineTo(particle.x+particle.x/2+particle.width+particle.width/2, particle.y+particle.y/2+particle.height);
+            ctx.lineTo(particle.x+particle.x/2+particle.width, particle.y+particle.y/2);
+            ctx.closePath();
+            ctx.fill();
+
+            if(particle.life >= particle.maxlife){
+                delete particles[particle.id];
+            }
         }
         frameId = requestAnimationFrame(drawParticle);
         if(frameId % 2 == 0) { return; }
@@ -69,7 +82,7 @@ const setParticle = (canvas:HTMLCanvasElement) => {
 
 
 
-export default function Home() {
+export default function TitleSection() {
     useEffect(() => {
         const canvas = document.querySelector("#titleCanvas canvas") as HTMLCanvasElement;
         setParticle(canvas!)
