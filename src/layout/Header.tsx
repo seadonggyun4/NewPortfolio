@@ -2,7 +2,7 @@ import module from '@/layout/header.module.css'
 import Link from "next/link";
 
 
-export default function Home() {
+export default function Header() {
   return (
     <header className={module.header}>
         <h1 className={module.title}>
