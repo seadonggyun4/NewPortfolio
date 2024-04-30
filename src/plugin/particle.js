@@ -1,21 +1,8 @@
 import {getRandom} from "@/utils/utils";
 
 class Particle{
-    x: number;
-    y: number;
-    vx: number;
-    vy: number;
-    color: string;
-    id: number;
-    life: number;
-    maxlife: number;
-    degree: number;
-    size: number;
-    width: number;
-    height: number
-
     // 초기 Particle값 세팅
-    constructor(x: number, vx: number, vy: number, size: number, canvas:HTMLCanvasElement, color:string, pIndex:number) {
+    constructor(x, vx, vy, size, canvas, color, pIndex) {
         this.x = x;
         this.y = -canvas.height / 2;
         this.vx = vx;

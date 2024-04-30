@@ -6,26 +6,26 @@ import Particle from "@/plugin/particle";
 
 
 // Particle Style 전역변수
-const particleStyle: Record<string, any> = {
+const particleStyle = {
     'amount': 3,
     'vx' : 2,
     'vy' : 4,
     'size' : 10,
 };
 
-const setParticle = (canvas:HTMLCanvasElement) => {
+const setParticle = (canvas) => {
     // 캔버스 세팅
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight;
 
     // ctx세팅
-    let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    let ctx = canvas.getContext("2d");
     ctx.globalCompositeOperation = "source-over";
 
     // particles 변수 생성
-    let particles:Array<Object> = [];
-    let pIndex:number = 0;
-    let x:number, y:number, frameId:number;
+    let particles = [];
+    let pIndex = 0;
+    let x, y, frameId;
 
 
     function drawParticle(){
@@ -84,8 +84,8 @@ const setParticle = (canvas:HTMLCanvasElement) => {
 
 export default function TitleSection() {
     useEffect(() => {
-        const canvas = document.querySelector("#titleCanvas canvas") as HTMLCanvasElement;
-        setParticle(canvas!)
+        const canvas = document.querySelector("#titleCanvas canvas");
+        setParticle(canvas)
     }, [])
 
 

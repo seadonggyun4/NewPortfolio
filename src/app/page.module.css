@@ -1,0 +1,15 @@
+.mainContainer {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* 화면에서 스크롤바 안보이게 */
+.mainContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.divider{
+    width: 100%;
+    height: 5px;
+    background-color: transparent;
+}

@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className={module.header}>
         <h1 className={module.title}>
-          <Link href="/">Donggyun's Portfolio</Link>
+          <Link href="/">Donggyun Portfolio</Link>
         </h1>
         <ul className={module.menuList}>
           <li>
