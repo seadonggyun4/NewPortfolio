@@ -18,7 +18,12 @@
 }
 
 .title a{
+    transition: 1s ease-in-out;
     color: #ffff;
+}
+
+.title.switched a{
+    color: black;
 }
 
 .menuList{
@@ -65,5 +70,10 @@
 }
 
 .menuList li a{
+    transition: 1s ease-in-out;
     color: #ffff;
+}
+
+.menuList.switched li a{
+    color: black;
 }

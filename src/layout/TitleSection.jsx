@@ -13,6 +13,8 @@ const particleStyle = {
     'size' : 10,
 };
 
+
+// [ 파티클 생성 매서드 ]
 const setParticle = (canvas) => {
     // 캔버스 세팅
     canvas.width = window.innerWidth
